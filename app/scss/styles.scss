@@ -1,0 +1,100 @@
+// Colors vars
+$white: #ffffff;
+$whitesmoke: #f9f8f9;
+$black: #000000;
+$dark: #131323;
+
+$peach: #e96766;
+
+$light-pink: #fff8f9;
+$light-pink2: #fcf9f8;
+
+$grey: #d2d2d2;
+$light-gray: #edece9;
+$grey-dark: #454545;
+$grey-medium: #707070;
+$grey-medium2: #b0aaaa;
+
+$light-green: #eef7f1;
+$pastel-green: #bee4e6;
+$light: #fcf8f6;
+
+$dark-coral: #cf5554;
+$light2: #fdf8f9;
+
+$brown: #6c2625;
+
+/* biryani-regular - latin */
+@font-face {
+  font-family: Biryani;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Biryani-Regular.ttf); /* Modern Browsers */
+}
+/* biryani-800 - latin */
+@font-face {
+  font-family: Biryani-light;
+  font-style: normal;
+  font-weight: 200;
+  src: url(../fonts/Biryani-ExtraLight.ttf); /* Modern Browsers */
+}
+
+@font-face {
+  font-family: Quickpen;
+  src: url(../fonts/Quickpen.woff);
+}
+
+
+// Fonts
+.font {
+  &-special {
+    font-family: Quickpen, serif;
+  }
+  &-light {
+    font-family: Biryani-light, sans-serif;
+  }
+}
+
+body {
+  font-family: Biryani, sans-serif;
+}
+
+.main {
+  .header {
+    width: 1120px;
+    height: 334px;
+    opacity: 0.75;
+    background-color: #ffffff;
+    background-image: url("../images/header-bg.png");
+
+    .conseilliere {
+      width: 150px;
+      height: 150px;
+      border: solid 1px $grey;
+    }
+
+    .shopping {
+      width: 187px;
+      height: 70px;
+      background-color: $peach;
+    }
+
+  }
+
+  .subtitle {
+
+  }
+
+  .left {
+    .upcoming {
+
+    }
+    .ad-left {
+
+    }
+  }
+
+  .main {
+
+  }
+}
