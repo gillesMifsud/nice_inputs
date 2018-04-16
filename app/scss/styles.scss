@@ -1,100 +1,91 @@
-// Colors vars
-$white: #ffffff;
-$whitesmoke: #f9f8f9;
-$black: #000000;
-$dark: #131323;
+@mixin niceLabelsInputs($hasLabel:true, $hasRequiredAsterisk: true, $marginBottom: 10px) {
+  border: 1px solid lightslategray;
+  height: 60px;
+  margin-bottom: $marginBottom;
+  width: 100%;
+  float: left;
+  display: block;
+  position: relative;
+  padding-left: 15px;
 
-$peach: #e96766;
+  @if $hasLabel {
+    label {
+      font-size: 12px;
+      padding: 5px;
+      color: dodgerblue;
+      z-index: 1;
 
-$light-pink: #fff8f9;
-$light-pink2: #fcf9f8;
-
-$grey: #d2d2d2;
-$light-gray: #edece9;
-$grey-dark: #454545;
-$grey-medium: #707070;
-$grey-medium2: #b0aaaa;
-
-$light-green: #eef7f1;
-$pastel-green: #bee4e6;
-$light: #fcf8f6;
-
-$dark-coral: #cf5554;
-$light2: #fdf8f9;
-
-$brown: #6c2625;
-
-/* biryani-regular - latin */
-@font-face {
-  font-family: Biryani;
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/Biryani-Regular.ttf); /* Modern Browsers */
-}
-/* biryani-800 - latin */
-@font-face {
-  font-family: Biryani-light;
-  font-style: normal;
-  font-weight: 200;
-  src: url(../fonts/Biryani-ExtraLight.ttf); /* Modern Browsers */
-}
-
-@font-face {
-  font-family: Quickpen;
-  src: url(../fonts/Quickpen.woff);
-}
-
-
-// Fonts
-.font {
-  &-special {
-    font-family: Quickpen, serif;
-  }
-  &-light {
-    font-family: Biryani-light, sans-serif;
-  }
-}
-
-body {
-  font-family: Biryani, sans-serif;
-}
-
-.main {
-  .header {
-    width: 1120px;
-    height: 334px;
-    opacity: 0.75;
-    background-color: #ffffff;
-    background-image: url("../images/header-bg.png");
-
-    .conseilliere {
-      width: 150px;
-      height: 150px;
-      border: solid 1px $grey;
+      /*TODO : if has icon*/
+      /*@if $hasIcon {
+        .iconfont-question_sign {
+          z-index: 2;
+          position: absolute;
+          right: 5px;
+          top: 5px;
+          font-size: rem-calc(20);
+        }
+      }*/
     }
 
-    .shopping {
-      width: 187px;
-      height: 70px;
-      background-color: $peach;
+    input {
+      height: 20px;
+      padding: 5px;
     }
-
-  }
-
-  .subtitle {
-
-  }
-
-  .left {
-    .upcoming {
-
-    }
-    .ad-left {
-
+    &:after {
+      bottom: -8px;
     }
   }
 
-  .main {
+  @else {
+    input {
+      height: calc(60px - 3px);
+      padding: 10px 5px;
+    }
+    &:after {
+      bottom: 1px;
+    }
+  }
 
+  input {
+    width: calc(100% - 25px);
+    -webkit-appearance: none;
+    margin-bottom: 0;
+    box-shadow: none !important;
+    background: transparent;
+    resize: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+    outline: none;
+    position: absolute;
+
+    &:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      outline: none !important;
+      background-color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0);
+    }
+    &:-webkit-autofill {
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+  }
+  @if $hasRequiredAsterisk {
+    &:after {
+      color: red;
+      font-size: 25px;
+      content: "*";
+      right: 7px;
+      position: absolute;
+    }
+  }
+  &.focused {
+    border-bottom: 2px solid lightgreen;
+    z-index: 2;
+  }
+}
+
+form {
+  [data-niceInput]{
+    @include niceLabelsInputs($hasLabel:true, $hasRequiredAsterisk: true);
   }
 }
