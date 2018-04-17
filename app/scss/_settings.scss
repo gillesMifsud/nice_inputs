@@ -1,0 +1,33 @@
+// Define Main colors
+$primary-color: #4F8196;
+$secondary-color: #E91E63;
+
+// CUSTOM CHECKBOXES & RADIOS
+// app/scss/components/_checkboxes-and-radios.scss
+$inputHeight: 14px;
+$inputWidth: 14px;
+$inputBorderWidth: 2px;
+$inputActiveScale: 4px; // optimized for even numbers
+
+$checkboxColor: $primary-color;
+$checkboxDisabledColor: #cccccc;
+
+$toggleInputWidth: 35px;
+$toggleInputHeight: 20px;
+$toggleBGColor: #d6d6d6;
+$toggleBGColorDisabled: lighten($toggleBGColor, 5%);
+$toggleBGColorActive: $checkboxColor;
+$toggleBGColorActiveDisabled: lighten(desaturate($toggleBGColorActive, 50%), 15%);
+$toggleHandleColor: #ffffff;
+$toggleHandleColorActive: #ffffff;
+
+// CUSTOM INPUTS TEXT
+// app/scss/components/_inputs-text.scss
+$labelColor: $primary-color;
+$borderBottomColor: $primary-color;
+$asteriskColor: red;
+$marginBottom: 10px;
+$focusedColor: $secondary-color;
+
+@import "components/inputs-text";
+@import "components/checkboxes-and-radios";
