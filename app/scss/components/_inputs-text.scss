@@ -72,13 +72,15 @@
           }
         }
       }
-      input {
+      input,
+      textarea {
         &::placeholder {
           color: transparent;
         }
       }
     } @else {
-      input {
+      input,
+      textarea {
         &::placeholder {
           color: $labelColor;
         }
@@ -86,10 +88,15 @@
     }
 
     input {
+      height: 32px;
+    }
+
+    input,
+    textarea {
       position: relative;
       display: block;
       width: 100%;
-      height: 32px;
+
       padding: 8px 0;
       line-height: 16px;
       font-family: Roboto, sans-serif;
@@ -118,7 +125,28 @@
 
 [data-niceInput] {
   position: relative;
-  height: 72px;
+
+  &.is-required {
+    span.asterisk {
+      &:after {
+        content: '*';
+        font-size: 25px;
+        color: red;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+      }
+    }
+  }
+
+  input & {
+    height: 72px;
+  }
+
+  textarea & {
+    height: 142px;
+  }
+
   padding: 16px 0 8px 0;
 
   margin-bottom: $marginBottom;
@@ -171,10 +199,15 @@
   }
 
   input {
+    height: 32px;
+  }
+
+  input,
+  textarea {
     position: relative;
     display: block;
     width: 100%;
-    height: 32px;
+
     padding: 8px 0;
     line-height: 16px;
     font-family: Roboto, sans-serif;

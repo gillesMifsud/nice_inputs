@@ -1,25 +1,11 @@
 $(document).ready(function(){
-
-    /*niceInputs.on('focus', function () {
-        var elem = $( this );
-        var parentElem = elem.closest('div');
-        if(elem.is(":focus")) {
-            parentElem.addClass("focused");
-        }
-    });
-
-    niceInputs.on('blur', function () {
-        var elem = $( this );
-        var parentElem = elem.closest('div');
-        parentElem.removeClass("focused");
-    });*/
-    //  Au focus
-    var niceInputs = $('[data-niceInput] input');
+    //  On focus
+    var niceInputs = $('[data-niceInput] input, [data-niceInput] textarea');
     niceInputs.focus(function(){
         $(this).parent().addClass('is-focused has-label');
     });
 
-    // à la perte du focus
+    // On blur
     niceInputs.blur(function(){
         $parent = $(this).parent();
         if($(this).val() == ''){
@@ -28,10 +14,15 @@ $(document).ready(function(){
         $parent.removeClass('is-focused');
     });
 
-    // si un champs est rempli on rajoute directement la class has-label
+    // If field is filled add class
     niceInputs.each(function(){
         if($(this).val() != ''){
             $(this).parent().addClass('has-label');
+        }
+        if($(this).prop('required', true)){
+            var asterisk = '<span class="asterisk"></span>';
+            $(this).parent().append(asterisk);
+            $(this).parent().addClass('is-required');
         }
     });
 
